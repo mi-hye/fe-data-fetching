@@ -1,8 +1,24 @@
+/* view */
+@import "./view/news-header.css";
+@import "./view/news-main.css";
+
+/* components */
+@import "./components/reset.css";
+@import "./components/components.css";
+
+@import "./constants/variables.css";
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	font-family: serif;
+	background-color: var(--main-background);
 }
 
-a {
-  color: #00B7FF;
+.news {
+	width: 1200px;
+	height: 800px;
+	border: 2.5px solid var(--black);
+	flex-direction: column;
 }
