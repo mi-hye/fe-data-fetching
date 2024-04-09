@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+	<head>
+		<title><%= title %></title>
+		<link rel="stylesheet" href="/css/style.css" />
+    <script defer type="module" src="/js/main.js"></script>
+	</head>
+	<body>
+		<body class="center">
+      <div class="news center">
+        <%- include('./newsComponents/header')%>
+        <%- include('./newsComponents/main')%>
+      </div>
+	</body>
 </html>
