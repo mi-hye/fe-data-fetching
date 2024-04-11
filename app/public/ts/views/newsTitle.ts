@@ -1,10 +1,10 @@
-import fetchNews from "../apis/newsList.js";
+import {fetchTotalNews, fetchSingleNews} from "../apis/news.js";
 
 const url: string = "http://localhost:3001/news";
 
 async function renderTitle() {
 	const $newsWrap = document.querySelector(".news-main__title-list-wrap") as HTMLElement;
-	const newsList = await fetchNews();
+	const newsList = await fetchTotalNews();
 
 	if ($newsWrap) {
 		$newsWrap.innerHTML = newsList?.reduce((prev: string, curr: NewsItem) => {
