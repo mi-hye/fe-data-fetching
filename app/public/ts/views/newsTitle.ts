@@ -1,6 +1,5 @@
-import {fetchTotalNews, fetchSingleNews} from "../apis/news.js";
-
-const url: string = "http://localhost:3001/news";
+import { fetchTotalNews, fetchSingleNews } from "../apis/news.js";
+import renderNewsDes from "./newsDescription.js";
 
 async function renderTitle() {
 	const $newsWrap = document.querySelector(".news-main__title-list-wrap") as HTMLElement;
@@ -8,22 +7,25 @@ async function renderTitle() {
 
 	if ($newsWrap) {
 		$newsWrap.innerHTML = newsList?.reduce((prev: string, curr: NewsItem) => {
-			prev += `<li><a href=${url}/${curr.id}>${curr.title}</a></li>`;
+			prev += `<li><a data-id=${curr.id}>${curr.title}</a></li>`;
 			return prev;
 		}, "") as string;
 	}
-
-	onClickNews($newsWrap);
 }
 
-async function onClickNews($newsWrap: HTMLElement) {
-	$newsWrap.addEventListener("click", (e) => {
-		e.preventDefault();
-		const $target = e.target as HTMLAnchorElement;
-		if ($target.tagName === "A") {
-			console.log($target.href);
-		}
-	});
+function onClickNewsTitle() {
+	const $newsWrap = document.querySelector(".news-main__title-list-wrap") as HTMLElement;
+	$newsWrap.addEventListener("click", handleClickNewsTitle);
 }
 
-export { renderTitle };
+async function handleClickNewsTitle(e: MouseEvent) {
+	e.preventDefault();
+	const $target = e.target as HTMLAnchorElement;
+	if ($target.tagName === "A") {
+		const id: string = $target.dataset.id ?? "";
+		const news = await fetchSingleNews(id);
+		if (news) renderNewsDes(news);
+	}
+}
+
+export { renderTitle, onClickNewsTitle };

@@ -41,8 +41,16 @@
 
 .news-main__des__main {
 	margin: 0px 30px;
+	line-height: 1.4;
 	&::first-letter {
 		font-size: 20px;
 		font-weight: 600;
 	}
+}
+
+.news-main__des__more {
+	margin: 30px;
+	font-weight: 600;
+	cursor: pointer;
+	text-decoration: underline;
 }
