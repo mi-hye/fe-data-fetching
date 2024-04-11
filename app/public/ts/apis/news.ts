@@ -1,4 +1,4 @@
-const url: string = "http://localhost:3000/news";
+const url = "http://localhost:3000/news";
 
 async function fetchTotalNews(): Promise<NewsItem[] | undefined> {
 	try {
