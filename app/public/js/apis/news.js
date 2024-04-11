@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const url = "http://localhost:3000/news";
-function fetchNews() {
+function fetchTotalNews() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const res = yield fetch(url);
@@ -20,4 +20,11 @@ function fetchNews() {
         }
     });
 }
-export default fetchNews;
+function fetchSingleNews(api) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield fetch(api);
+        const newsDetail = yield res.json();
+        console.log(newsDetail);
+    });
+}
+export { fetchTotalNews, fetchSingleNews };
