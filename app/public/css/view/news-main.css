@@ -11,7 +11,14 @@
 	border: var(--main-border);
 	margin-right: 25px;
 	& li {
-		margin: 30px 20px;
+		margin: 33px 20px;
+		width: 85%;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 12px;
+		font-weight: 600;
+		cursor: pointer;
 	}
 }
 
@@ -22,15 +29,15 @@
 }
 
 .news-main__news__title {
-	margin: 40px;
-	font-size: 30px;
+	margin: 30px;
+	font-size: 24px;
 	font-weight: 900;
 }
 
 .news-main__news__main {
-	margin: 0px 40px;
+	margin: 0px 30px;
 	&::first-letter {
-		font-size: 20px;
+		font-size: 15px;
 		font-weight: 600;
 	}
 }
