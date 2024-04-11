@@ -1,3 +1,6 @@
+const TIME_LIMIT = 60;
+const TIMER = 1000;
+
 let timer: number;
 
 function onClickRefresh(renderTitle: Function, delay: Function) {
@@ -11,13 +14,19 @@ function onClickRefresh(renderTitle: Function, delay: Function) {
 }
 
 function setTimer() {
-	let time = 60;
+	let time = TIME_LIMIT;
 	const $timer = document.querySelector(".news-header__timer") as HTMLElement;
 	$timer.innerText = `${time}s 뒤 새로고침`;
 	timer = setInterval(() => {
 		time -= 1;
 		$timer.innerText = `${time}s 뒤 새로고침`;
-	}, 1000);
+		refreshNews(time);
+	}, TIMER);
+}
+
+function refreshNews(time: number) {
+	const $refresh = document.querySelector(".news-header__refresh") as HTMLElement;
+	if (!time) $refresh.click();
 }
 
 export { onClickRefresh, setTimer };
