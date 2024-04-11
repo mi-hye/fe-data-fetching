@@ -11,8 +11,8 @@
 	font-size: 20px;
 	background-color: var(--main-background);
 	cursor: pointer;
-	width: 150px;
-	height: 40px;
+	width: 145px;
+	height: 35px;
 	margin: 0px 10px 0px 70px;
 	box-shadow: 3px 0.5px 7px black;
 	transition: all 0.3s ease-in-out;
