@@ -17,8 +17,8 @@ body {
 }
 
 .news {
-	width: 1200px;
-	height: 800px;
+	width: 1000px;
+	height: 600px;
 	border: 2.5px solid var(--black);
 	flex-direction: column;
 }
