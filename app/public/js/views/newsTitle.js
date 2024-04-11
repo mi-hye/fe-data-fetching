@@ -7,19 +7,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import fetchNews from "../apis/news.js";
+import fetchNews from "../apis/newsList.js";
+const url = "http://localhost:3001/news";
 function renderTitle() {
     return __awaiter(this, void 0, void 0, function* () {
         const $newsWrap = document.querySelector(".news-main__title-list-wrap");
         const newsList = yield fetchNews();
-        console.log("ts", newsList);
-        console.log($newsWrap);
         if ($newsWrap) {
             $newsWrap.innerHTML = newsList === null || newsList === void 0 ? void 0 : newsList.reduce((prev, curr) => {
-                prev += `<li>${curr.title}</li>`;
+                prev += `<li><a href=${url}/${curr.id}>${curr.title}</a></li>`;
                 return prev;
             }, "");
         }
+        onClickNews($newsWrap);
+    });
+}
+function onClickNews($newsWrap) {
+    return __awaiter(this, void 0, void 0, function* () {
+        $newsWrap.addEventListener("click", (e) => {
+            e.preventDefault();
+            const $target = e.target;
+            if ($target.tagName === "A") {
+                console.log($target.href);
+            }
+        });
     });
 }
 export { renderTitle };

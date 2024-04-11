@@ -1,17 +1,29 @@
-import fetchNews from "../apis/news.js";
+import fetchNews from "../apis/newsList.js";
+
+const url: string = "http://localhost:3001/news";
 
 async function renderTitle() {
-	const $newsWrap = document.querySelector(".news-main__title-list-wrap");
+	const $newsWrap = document.querySelector(".news-main__title-list-wrap") as HTMLElement;
 	const newsList = await fetchNews();
-	console.log("ts", newsList);
-	console.log($newsWrap);
 
 	if ($newsWrap) {
 		$newsWrap.innerHTML = newsList?.reduce((prev: string, curr: NewsItem) => {
-			prev += `<li>${curr.title}</li>`;
+			prev += `<li><a href=${url}/${curr.id}>${curr.title}</a></li>`;
 			return prev;
 		}, "") as string;
 	}
+
+	onClickNews($newsWrap);
+}
+
+async function onClickNews($newsWrap: HTMLElement) {
+	$newsWrap.addEventListener("click", (e) => {
+		e.preventDefault();
+		const $target = e.target as HTMLAnchorElement;
+		if ($target.tagName === "A") {
+			console.log($target.href);
+		}
+	});
 }
 
 export { renderTitle };
