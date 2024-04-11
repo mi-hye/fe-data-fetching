@@ -24,10 +24,10 @@
 	background-color: black;
 	border-radius: 50%;
 	&:first-child {
-		animation: circle 2s ease-in-out 1s infinite;
+		animation: circle 2s ease-in-out infinite;
 	}
 	&:last-child {
-		animation: circleReverse 2s ease-in-out 1s infinite;
+		animation: circleReverse 2s ease-in-out infinite;
 	}
 }
 
