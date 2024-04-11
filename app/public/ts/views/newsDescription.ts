@@ -1,13 +1,13 @@
-const NEWS_MAX_LENGTH = 200;
+const NEWS_MAX_LENGTH = 300;
 
 function renderNewsDes(news: NewsItem) {
-	const $title = document.querySelector(".news-main__des__title");
-	const $main = document.querySelector(".news-main__des__main");
-	const $more = document.querySelector(".news-main__des__more > a");
+	const $title = document.querySelector(".news-main__des__title") as HTMLElement;
+	const $main = document.querySelector(".news-main__des__main") as HTMLElement;
+	const $more = document.querySelector(".news-main__des__more > a") as HTMLAnchorElement;
 
-	if ($title instanceof HTMLElement) $title.innerText = news.title;
-	if ($main instanceof HTMLElement) $main.innerText = sliceContent(news.content);
-	if ($more instanceof HTMLAnchorElement) $more.href = news.url;
+	$title.innerText = news.title;
+	$main.innerText = sliceContent(news.content);
+	$more.href = news.url;
 }
 
 function sliceContent(content: string): string {
