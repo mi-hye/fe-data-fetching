@@ -21,19 +21,19 @@
 	}
 }
 
-.news-main__news {
+.news-main__des {
 	width: 75%;
 	height: 100%;
 	border: var(--main-border);
 }
 
-.news-main__news__title {
+.news-main__des__title {
 	margin: 30px;
 	font-size: 24px;
 	font-weight: 900;
 }
 
-.news-main__news__main {
+.news-main__des__main {
 	margin: 0px 30px;
 	&::first-letter {
 		font-size: 18px;
