@@ -1,3 +1,5 @@
-import { renderTitle } from "./views/newsTitle.js";
+import renderNewsDes from "./views/newsDescription.js";
+import { renderTitle, onClickNewsTitle } from "./views/newsTitle.js";
 
 renderTitle();
+onClickNewsTitle(renderNewsDes);
