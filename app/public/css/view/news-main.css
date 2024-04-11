@@ -18,6 +18,12 @@
 		text-overflow: ellipsis;
 		font-size: 12px;
 		font-weight: 600;
+		& a {
+			cursor: pointer;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 }
 
