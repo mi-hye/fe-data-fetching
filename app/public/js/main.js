@@ -1,2 +1,2 @@
-"use strict";
-alert("?sdd?asdasds");
+import { renderTitle } from "./views/newsTitle.js";
+renderTitle();
