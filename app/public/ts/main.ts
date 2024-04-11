@@ -1,5 +1,5 @@
 import renderNewsDes from "./views/newsDescription.js";
 import { renderTitle, onClickNewsTitle } from "./views/newsTitle.js";
 
-renderTitle();
+await renderTitle();
 onClickNewsTitle(renderNewsDes);

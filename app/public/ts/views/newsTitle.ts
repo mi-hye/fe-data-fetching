@@ -17,6 +17,9 @@ function onClickNewsTitle(render: Function) {
 	$newsWrap.addEventListener("click", (e) => {
 		handleClickNewsTitle(e, render);
 	});
+
+	const firstLink = $newsWrap.querySelector("a") as HTMLElement;
+	firstLink.click();
 }
 
 async function handleClickNewsTitle(e: MouseEvent, render: Function) {
