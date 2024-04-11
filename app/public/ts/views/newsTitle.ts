@@ -1,7 +1,5 @@
 import { fetchTotalNews, fetchSingleNews } from "../apis/news.js";
 
-const DELAY = 2000;
-
 async function renderTitle() {
 	const $newsWrap = document.querySelector(".news-main__title-list-wrap") as HTMLElement;
 	const newsList = await fetchTotalNews();
@@ -14,17 +12,17 @@ async function renderTitle() {
 	}
 }
 
-function onClickNewsTitle(render: Function) {
+function onClickNewsTitle(render: Function, delay: Function) {
 	const $newsWrap = document.querySelector(".news-main__title-list-wrap") as HTMLElement;
 	$newsWrap.addEventListener("click", (e) => {
-		handleClickNewsTitle(e, render);
+		handleClickNewsTitle(e, render, delay);
 	});
 
 	const firstLink = $newsWrap.querySelector("a") as HTMLElement;
 	firstLink.click();
 }
 
-async function handleClickNewsTitle(e: MouseEvent, render: Function) {
+async function handleClickNewsTitle(e: MouseEvent, render: Function, delay: Function) {
 	e.preventDefault();
 	const $target = e.target as HTMLAnchorElement;
 	if ($target.tagName === "A") {
@@ -33,21 +31,6 @@ async function handleClickNewsTitle(e: MouseEvent, render: Function) {
 		await delay();
 		if (news) render(news);
 	}
-}
-
-function delay() {
-	const $newsWrap = document.querySelector(".news") as HTMLElement;
-	const $loading = document.querySelector(".loading") as HTMLElement;
-
-	$newsWrap.classList.add("blur");
-	$loading.style.display = "block";
-
-	return new Promise<void>((resolve) => {
-		setTimeout(resolve, DELAY);
-	}).then(() => {
-		$newsWrap.classList.remove("blur");
-		$loading.style.display = "none";
-	});
 }
 
 export { renderTitle, onClickNewsTitle };
