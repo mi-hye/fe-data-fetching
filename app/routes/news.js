@@ -1,11 +1,12 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
 // JSON Server의 기본 URL
 const jsonServerUrl = "http://localhost:3001";
 
 // 뉴스 데이터를 가져오는 엔드포인트 설정 요청이 들어오면 응답으로 반환
 router.get("/", async (req, res) => {
+	res.set("Cache-Control", "public, max-age=30");
 	try {
 		const newRes = await fetch(`${jsonServerUrl}/news`);
 		const news = await newRes.json();
@@ -18,6 +19,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
+	res.set("Cache-Control", "public, max-age=30");
 	try {
 		const singleNewsRes = await fetch(`${jsonServerUrl}/news/${req.params.id}`);
 		const singleNews = await singleNewsRes.json();
