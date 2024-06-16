@@ -1,0 +1,10 @@
+{
+	"include": ["public/ts"],
+	"compilerOptions": {
+		"outDir": "public/js",
+		"module": "esnext",
+		"target": "es2017",
+		"lib": ["es2017", "DOM"],
+		"strict": true
+	}
+}
